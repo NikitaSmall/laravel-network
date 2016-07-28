@@ -66,4 +66,11 @@ class MessagesController extends Controller
 
     	return redirect('/messages/to');
     }
+
+    public function messages_to_ajax(Request $request)
+    {
+        $messages = $this->messageRepository->messages_to($request->user());
+
+        return $messages;
+    }
 }

@@ -37,3 +37,5 @@ Route::get('/google', ['as' => 'google_login', 'uses' => 'OAuthController@google
 Route::get('/search/user', ['as' => 'search_user', 'uses' => 'HomeController@search_user_by_name']);
 
 Route::get('/search/friend', ['as' => 'search_friend', 'uses' => 'HomeController@search_friend']);
+
+Route::get('/messages/to/ajax', ['as' => 'messages_to_ajax', 'uses' => 'MessagesController@messages_to_ajax']);

@@ -14,6 +14,6 @@
 
 		public function messages_to(User $user)
 		{
-			return Message::where('rec_id', $user->id)->get();	
+			return Message::with('user')->where('rec_id', $user->id)->get();	
 		}
 	}

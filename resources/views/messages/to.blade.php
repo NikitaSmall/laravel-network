@@ -7,21 +7,21 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Messages to {{ Auth::user()->name }}</div>
 
-                <div class="panel-body">
+                <div class="panel-body" id="messages">
                     @foreach($messages as $message)
-                        <br>
-                        {{ $message->body }} | <form method="POST" action="{{ route('read_message', $message->id) }}">
-                            {{ method_field('PUT') }}
-                            {{ csrf_field() }}
-
-                            <input type="submit" class="btn btn-default" value="Read it!">
-                        </form><br>
-                        from {{ $message->user->name }}
-                            
+                        <div class="message">
+                            {{ $message->body }}
+                            <br /> 
+                            from {{ $message->user->name }}
+                        </div>                     
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
 </div>
+@push('scripts')
+    <script src="/js/listen.js"></script>
+@endpush
+
 @endsection
